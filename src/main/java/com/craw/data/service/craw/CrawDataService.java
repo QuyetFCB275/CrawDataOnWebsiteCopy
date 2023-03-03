@@ -3,6 +3,7 @@ package com.craw.data.service.craw;
 import com.craw.data.model.dto.PokemonProduct;
 import com.craw.data.service.connection.ConnectionPage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -15,9 +16,11 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CrawDataService implements CrawData {
 
     private final ConnectionPage connection;
@@ -34,6 +37,7 @@ public class CrawDataService implements CrawData {
 
     @Override
     public Integer getTotalElementPages() throws IOException {
+        log.info("Start get amount of paging on website.");
         Elements elements = connection.getConnection(urlRoot).select(elementCssPage);
 
         return elements.stream().map(CrawDataService::convertToNumber)
@@ -50,7 +54,8 @@ public class CrawDataService implements CrawData {
     }
 
     @Override
-    public void crawData() throws IOException {
+    public void crawData() throws IOException, InterruptedException {
+        log.info("Starting craw data ...");
         Integer totalPages = getTotalElementPages();
         List<PokemonProduct> pokemonProducts = new ArrayList<>();
 
@@ -62,6 +67,10 @@ public class CrawDataService implements CrawData {
                     .connection(connection)
                     .urlPage(urlPage).index(index).build());
         }
+
         executorService.shutdown();
+        executorService.awaitTermination(300, TimeUnit.SECONDS);
+
+        log.info("Finished craw data !");
     }
 }

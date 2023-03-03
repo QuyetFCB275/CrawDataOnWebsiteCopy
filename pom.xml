@@ -8,11 +8,11 @@
         <version>3.0.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>city.of.leander</groupId>
-    <artifactId>CrawCityOfLeander</artifactId>
+    <groupId>craw.data.api</groupId>
+    <artifactId>CrawDataOnWebsite</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>CrawCityOfLeander</name>
-    <description>CrawCityOfLeander</description>
+    <name>CrawDataOnWebsite</name>
+    <description>CrawDataOnWebsite</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -29,7 +29,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
@@ -39,6 +38,11 @@
             <groupId>com.opencsv</groupId>
             <artifactId>opencsv</artifactId>
             <version>4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>2.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -56,8 +60,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -76,5 +78,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

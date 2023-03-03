@@ -39,9 +39,9 @@ public class ThreadCraw implements Runnable{
                         .build();
                 this.pokemonProducts.add(pokemonProduct);
             });
-            System.out.println(index);
 
             writeFile(pokemonProducts);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -61,7 +61,7 @@ public class ThreadCraw implements Runnable{
             while (iterator.hasNext()) {
                 try {
                     PokemonProduct item = iterator.next();
-                    bufferedWriter.write(item.getName() + " : " + item.getPrice()  + " : " + item.getImage() + " : " + item.getUrl());
+                    bufferedWriter.write(item.getName() + "," + item.getPrice()  + "," + item.getImage() + "," + item.getUrl());
                     bufferedWriter.newLine();
                 } catch (IOException e) {
                     throw new RuntimeException(e);
