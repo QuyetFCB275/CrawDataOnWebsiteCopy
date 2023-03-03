@@ -1,10 +1,9 @@
-package com.city.of.leander.service.craw;
+package com.craw.data.service.craw;
 
-import com.city.of.leander.model.dto.PokemonProduct;
-import com.city.of.leander.service.connection.ConnectionPage;
+import com.craw.data.model.dto.PokemonProduct;
+import com.craw.data.service.connection.ConnectionPage;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Value;

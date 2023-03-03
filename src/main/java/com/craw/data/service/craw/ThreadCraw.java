@@ -1,7 +1,7 @@
-package com.city.of.leander.service.craw;
+package com.craw.data.service.craw;
 
-import com.city.of.leander.model.dto.PokemonProduct;
-import com.city.of.leander.service.connection.ConnectionPage;
+import com.craw.data.model.dto.PokemonProduct;
+import com.craw.data.service.connection.ConnectionPage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
